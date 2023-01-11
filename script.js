@@ -1,6 +1,6 @@
 /*
 Questa volta però ogni task sarà un oggetto, formato da due proprietà:
-s- text, una stringa che indica il testo del task
+- text, una stringa che indica il testo del task
 - done, un booleano (true/false) che indica se il task è stato fatto oppure no
 Create almeno un task con done: true
 MILESTONE 1
@@ -14,3 +14,40 @@ Bonus:
 1- oltre al click sul pulsante, intercettare anche il tasto ENTER per aggiungere il task alla lista
 2- cliccando sul testo dell'item, invertire il valore della proprietà done del task corrispondente (se done era uguale a false, impostare true e viceversa)
 */
+console.log('VUE OK', Vue);
+
+const app = Vue.createApp({
+    data(){
+        return{
+            tasks:[
+                {
+                    text: 'Fare la spesa',
+                    done: false 
+                },
+                {
+                    text: 'Fare i compiti',
+                    done: false
+                },
+                {
+                    text: 'Preparare un dolce',
+                    done: true
+                }
+            ],
+            newTask: {
+                text: '',
+                done: false
+            }
+        }
+    },
+    methods: {
+        removeTask(i){
+            this.tasks.splice(i, 1);
+        },
+        addTask(){
+            this.tasks.text.push(this.newTask.text);
+            this.newTask.text = '';
+        }
+    }
+});
+
+app.mount('#root');
