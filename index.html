@@ -32,10 +32,10 @@
                     <button @click="addTask" class="btn btn-outline-secondary" type="button" id="button-addon2"> Aggiungi </button>
                 </div>
                 <!-- lista -->
-                <ul class="list-group">
+                <ul v-if="tasks.length" class="list-group">
                     <li v-for="(task,i) in tasks" :class="{'done': task.done === true}" class="list-group-item d-flex justify-content-between align-items-center">
-                        {{ task.text }}
-                        <i @click="removeTask(i)" class="bi bi-trash3"></i> 
+                       <span @click="task.done = !task.done"> {{ task.text }} </span>
+                       <i @click="removeTask(i)" class="bi bi-trash3"></i> 
                     </li>
                 </ul>
             </main>

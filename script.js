@@ -45,7 +45,7 @@ const app = Vue.createApp({
                 this.tasks.push({text: this.newTaskText, done: false});
                 this.newTaskText = '';
             }
-        }
+        },
     }
 });
 
