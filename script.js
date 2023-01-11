@@ -33,10 +33,7 @@ const app = Vue.createApp({
                     done: true
                 }
             ],
-            newTask: {
-                text: '',
-                done: false
-            }
+            newTaskText: '',
         }
     },
     methods: {
@@ -44,8 +41,8 @@ const app = Vue.createApp({
             this.tasks.splice(i, 1);
         },
         addTask(){
-            this.tasks.text.push(this.newTask.text);
-            this.newTask.text = '';
+            this.tasks.push({text: this.newTaskText, done: false});
+            this.newTaskText = '';
         }
     }
 });
